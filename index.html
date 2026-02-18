@@ -3,103 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What 2,083 Kilometers Taught Me - Business Insider</title>
+    <title>Relationship Market Analysis - Business Insider</title>
     <style>
         /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body {
             background-color: #FFFFFF;
-            color: #1a1a1a;
+            color: #111;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* COLORS */
+        :root {
+            --bi-blue: #13589D;
+            --bi-red: #cc0000;
+            --text-dark: #111;
+            --text-gray: #555;
+            --bg-light: #f5f5f5;
         }
 
         /* LAYOUT */
         .page-wrapper {
-            max-width: 100%;
+            width: 100%;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* HEADER */
         .header-bar {
             width: 100%;
             padding: 15px 20px;
-            border-bottom: 2px solid #1a1a1a;
+            border-bottom: 2px solid #000;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             position: sticky;
             top: 0;
             background: #fff;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .bi-logo {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
             font-weight: 900;
-            font-size: 24px;
-            letter-spacing: -1px;
-            color: #1a1a1a;
+            font-size: 26px;
+            letter-spacing: -1.5px;
+            color: #111;
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
+            line-height: 1;
         }
 
-        .bi-logo span { color: #0073bb; margin-left: 2px; }
-
+        /* CONTENT CONTAINER */
         .content-container {
-            max-width: 728px;
+            max-width: 740px;
             margin: 0 auto;
-            padding: 30px 20px 0px 20px;
+            padding: 40px 20px 60px 20px;
+            flex: 1;
         }
 
-        /* BRIEFING INTRO STYLE */
-        .briefing-intro {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            color: #333;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e2e2e2;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-left: 4px solid #0073bb;
-        }
-
-        .briefing-intro strong {
-            font-weight: 700;
-        }
-
-        /* ARTICLE TYPOGRAPHY */
+        /* ARTICLE HEADLINES */
         .badge {
             display: inline-block;
-            background-color: #e00;
+            background-color: var(--bi-red);
             color: #fff;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 4px 6px;
-            margin-bottom: 12px;
+            padding: 4px 8px;
+            margin-bottom: 15px;
             letter-spacing: 0.5px;
+            border-radius: 2px;
         }
 
         h1 {
             font-family: 'LabGrotesque-Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 800;
-            font-size: 34px;
+            font-size: 36px;
             line-height: 1.1;
             color: #000;
             margin-bottom: 15px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.8px;
         }
 
         h2.subhead {
-            font-family: 'LabGrotesque-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 400;
             font-size: 18px;
             line-height: 1.4;
-            color: #555;
+            color: var(--text-gray);
             margin-bottom: 25px;
         }
 
@@ -107,132 +102,143 @@
         .byline-wrapper {
             display: flex;
             align-items: center;
-            margin-bottom: 35px;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 13px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
         }
 
         .author-avatar {
             width: 44px;
             height: 44px;
-            background-color: #f2f2f2;
+            background-color: var(--bg-light);
             border-radius: 50%;
             margin-right: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            color: #0073bb;
+            font-weight: 800;
+            color: var(--bi-blue);
             font-size: 18px;
         }
 
         .byline-info { display: flex; flex-direction: column; }
-        .author-name { font-weight: 700; color: #0073bb; margin-bottom: 3px; }
-        .timestamp { color: #666; margin-top: 3px; font-size: 12px; }
+        .author-name { font-weight: 700; color: var(--bi-blue); font-size: 14px; margin-bottom: 2px; }
+        .timestamp { color: #666; font-size: 12px; }
+
+        /* BRIEFING INTRO (MOVED HERE) */
+        .briefing-intro {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-left: 5px solid var(--bi-blue);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #222;
+            margin-bottom: 40px;
+        }
+
+        .briefing-intro strong {
+            font-weight: 800;
+            color: #000;
+        }
 
         /* BODY TEXT */
         .article-body {
             font-family: 'Georgia', serif;
             font-size: 19px;
             line-height: 1.7;
-            color: #222;
+            color: #111;
         }
 
-        .article-body p { margin-bottom: 24px; }
+        .article-body p { margin-bottom: 28px; }
 
         .article-body h3 {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 22px;
-            margin-top: 40px;
-            margin-bottom: 12px;
+            margin-top: 45px;
+            margin-bottom: 15px;
             color: #000;
+            letter-spacing: -0.5px;
         }
 
+        /* CHART STYLES */
+        .chart-box {
+            border: 1px solid #e2e2e2;
+            padding: 25px;
+            margin: 40px 0;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .chart-header {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .chart-caption {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+            font-family: sans-serif;
+        }
+
+        /* LISTS */
         .article-body ul {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             list-style: none;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 20px 0;
+            padding: 10px 0;
         }
 
         .article-body ul li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
+            padding-left: 25px;
+            margin-bottom: 12px;
         }
 
         .article-body ul li::before {
             content: "•";
             position: absolute;
             left: 0;
-            color: #0073bb;
+            color: var(--bi-blue);
             font-weight: bold;
             font-size: 20px;
             line-height: 1;
-            top: 3px;
+            top: 4px;
         }
 
-        /* LINKS */
-        a { color: #0073bb; text-decoration: none; border-bottom: 1px solid #0073bb; }
-        a:hover { background-color: #eaf5ff; }
-
-        /* FOOTER / READ NEXT SECTION */
-        .read-next-section {
+        /* FOOTER */
+        .footer-minimal {
+            border-top: 4px solid #000;
             background-color: #f9f9f9;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 1px solid #e2e2e2;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 40px;
         }
 
-        .read-next-container {
-            max-width: 728px;
-            margin: 0 auto;
-        }
-
-        .read-next-label {
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 14px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-            border-bottom: 2px solid #1a1a1a;
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-
-        .read-next-card {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .read-next-card:last-child { border-bottom: none; }
-
-        .read-next-headline {
-            font-weight: 700;
+        .footer-logo {
+            font-family: 'Arial Black', sans-serif;
+            font-weight: 900;
             font-size: 18px;
-            color: #0073bb;
-            margin-bottom: 5px;
-            display: block;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            color: var(--bi-blue);
         }
 
-        .read-next-meta {
+        .footer-text {
+            font-family: 'Helvetica Neue', sans-serif;
             font-size: 12px;
             color: #666;
         }
 
-        .final-message {
-            text-align: center;
-            padding: 40px 0;
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            color: #555;
-            font-size: 16px;
-        }
-
+        /* RESPONSIVE */
         @media(max-width: 600px) {
             h1 { font-size: 28px; }
             .content-container { padding: 20px; }
@@ -243,21 +249,16 @@
 
 <div class="page-wrapper">
     
-    <!-- BI HEADER BAR -->
+    <!-- HEADER -->
     <div class="header-bar">
-        <div class="bi-logo">BUSINESS<span>INSIDER</span></div>
+        <div class="bi-logo">BUSINESS INSIDER</div>
     </div>
 
     <div class="content-container">
         
-        <!-- THE "WELCOME BACK" BRIEFING INTRO -->
-        <div class="briefing-intro">
-            <strong>Welcome back!</strong> Most analysts define "relationship success" by proximity—how often you see each other. But what if the strongest indicator of long-term value is actually <em>distance</em>? I looked at the metrics of my own relationship before a high-stakes exam week. <br><br>Let’s dive into the data.
-        </div>
-
-        <!-- ARTICLE METADATA -->
+        <!-- ARTICLE HEADLINES -->
         <span class="badge">Life</span>
-        <h1>I’ve been in a long-distance relationship for 8 months. Here’s what 2,083 kilometers taught me about seeing someone’s real value.</h1>
+        <h1>I analyzed 8 months of long-distance relationship data. Here is why 2,083 kilometers proved my girlfriend’s value long before her exam results came in.</h1>
         <h2 class="subhead">My girlfriend has a high-stakes exam on Thursday. I’m not worried about her performance metrics — I’m in awe of the operational resilience she’s already demonstrated.</h2>
 
         <!-- BYLINE -->
@@ -269,7 +270,12 @@
             </div>
         </div>
 
-        <!-- MAIN BODY -->
+        <!-- BRIEFING INTRO (MOVED) -->
+        <div class="briefing-intro">
+            <strong>Welcome back!</strong> Most analysts define "relationship success" by proximity—how often you see each other. But what if the strongest indicator of long-term value is actually <em>distance</em>? I looked at the metrics of my own relationship before a major exam week. <br><br>Let’s dive into the data.
+        </div>
+
+        <!-- ARTICLE BODY -->
         <div class="article-body">
             <p>My girlfriend Aaradhya and I have been together for eight months. We’ve FaceTimed once. We live 2,083 kilometers apart. And on Thursday, she has an exam that represents a significant Q1 deliverable for her academic career.</p>
 
@@ -279,13 +285,48 @@
 
             <h3>The acquisition strategy: Cold outreach via Instagram</h3>
             
-            <p>We met the modern way: Instagram DMs. Eight months ago, I initiated contact with zero expectations of a return on investment. She replied. That reply pivoted into a conversation, which scaled rapidly into daily voice notes.</p>
+            <p>We met the modern way: Instagram DMs. Eight months ago, I initiated contact with zero expectations of a return on investment (ROI). She replied. That reply pivoted into a conversation, which scaled rapidly into daily voice notes.</p>
 
             <p>Those voice notes now occupy roughly 60% of my phone’s total storage capacity. That is a hard data point that proves just how much we have to say to each other.</p>
 
             <p>Now, I track her flights like a logistics manager. I know her coffee order. I’ve watched her explain cellular respiration with the same energy most people reserve for a viral Netflix series. I’ve heard her break down biology concepts, Harry Potter lore, and murder mysteries at hours when most people are offline.</p>
 
             <p>Somewhere in that process, I fell completely in love with someone I’ve technically seen in person zero times.</p>
+
+            <!-- LINE CHART SECTION -->
+            <div class="chart-box">
+                <div class="chart-header">Figure 1: Relationship Value vs. External Stress</div>
+                <svg viewBox="0 0 400 220" style="width:100%; height: auto;">
+                    <!-- Grid -->
+                    <line x1="40" y1="180" x2="380" y2="180" stroke="#eee" stroke-width="1"/>
+                    <line x1="40" y1="140" x2="380" y2="140" stroke="#eee" stroke-width="1"/>
+                    <line x1="40" y1="100" x2="380" y2="100" stroke="#eee" stroke-width="1"/>
+                    <line x1="40" y1="60" x2="380" y2="60" stroke="#eee" stroke-width="1"/>
+                    
+                    <!-- Axes -->
+                    <line x1="40" y1="20" x2="40" y2="180" stroke="#333" stroke-width="2"/>
+                    <line x1="40" y1="180" x2="380" y2="180" stroke="#333" stroke-width="2"/>
+
+                    <!-- Labels -->
+                    <text x="10" y="100" font-family="Arial" font-size="10" fill="#666" transform="rotate(-90 10,100)">Perceived Value</text>
+                    <text x="200" y="200" font-family="Arial" font-size="10" fill="#666">Timeline (8 Months)</text>
+
+                    <!-- Red Line (Stress - Volatile) -->
+                    <polyline points="40,160 90,140 140,150 190,100 240,130 290,70 340,40" 
+                              fill="none" stroke="#cc0000" stroke-width="2" stroke-dasharray="4"/>
+                    
+                    <!-- Blue Line (Her Value - Steady Up) -->
+                    <polyline points="40,160 90,135 140,115 190,95 240,75 290,55 340,30" 
+                              fill="none" stroke="#13589D" stroke-width="4"/>
+
+                    <!-- Legend -->
+                    <rect x="260" y="10" width="10" height="10" fill="#13589D" />
+                    <text x="280" y="18" font-family="Arial" font-size="10">Her Value</text>
+                    <rect x="260" y="25" width="10" height="10" fill="#cc0000" />
+                    <text x="280" y="33" font-family="Arial" font-size="10">Exam Stress</text>
+                </svg>
+                <div class="chart-caption">Analysis: While short-term volatility (stress) increases near deadlines, the long-term asset value (Aaradhya) continues to trend upward. Source: Niv Analytics.</div>
+            </div>
 
             <h3>Distance forces you to audit character</h3>
 
@@ -302,8 +343,6 @@
             <p>She’s stressed about the exam. I can tell from the text frequency and tone. The exam is real, and the stakes are high.</p>
 
             <p>But I am not going to offer empty corporate platitudes like "you’ve got this." Instead, I am looking at her track record.</p>
-
-            <p>I’ve watched her handle eight months of distance, academic pressure, and the complexity of our situation. She is already doing the hard thing. The exam on Thursday is just one day. It measures recall under pressure.</p>
             
             <p><strong>Here is what exams fail to measure (Key Performance Indicators for Life):</strong></p>
             <ul>
@@ -335,30 +374,12 @@
         </div>
     </div>
 
-    <!-- READ NEXT / FOOTER SECTION -->
-    <div class="read-next-section">
-        <div class="read-next-container">
-            <div class="read-next-label">Read next</div>
-            
-            <div class="read-next-card">
-                <a href="#" class="read-next-headline">Analysis: Why biology students make the most resilient long-term partners</a>
-                <div class="read-next-meta">Science • 4h ago</div>
-            </div>
-
-            <div class="read-next-card">
-                <a href="#" class="read-next-headline">Opinion: Tracking your partner's flight isn't obsessive, it's logistical love</a>
-                <div class="read-next-meta">Travel • 1d ago</div>
-            </div>
-
-            <div class="read-next-card">
-                <a href="#" class="read-next-headline">The 'Nail Clipper Index': How small gestures predict relationship longevity</a>
-                <div class="read-next-meta">Strategy • 2d ago</div>
-            </div>
-
-            <div class="final-message">
-                &copy; 2026 Niv Insider. All rights reserved. <br>
-                Dedicated to Aaradhya, who is going to crush it.
-            </div>
+    <!-- CLEAN FOOTER -->
+    <div class="footer-minimal">
+        <div class="footer-logo">NIV INSIDER</div>
+        <div class="footer-text">
+            © 2026 Niv Insider, Inc. All rights reserved.<br>
+            Dedicated to Aaradhya. Good luck on Thursday.
         </div>
     </div>
 
