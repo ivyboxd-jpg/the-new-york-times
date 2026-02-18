@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Analysis: The Long Distance Asset Class - Business Insider</title>
+    <title>What 2,083 Kilometers Taught Me - Business Insider</title>
     <style>
         /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body {
             background-color: #FFFFFF;
-            color: #111;
+            color: #1a1a1a;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        /* LAYOUT */
+        .page-wrapper {
+            max-width: 100%;
             overflow-x: hidden;
         }
 
-        /* HEADER */
         .header-bar {
             width: 100%;
-            padding: 12px 20px;
-            border-bottom: 2px solid #000;
+            padding: 15px 20px;
+            border-bottom: 2px solid #1a1a1a;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             position: sticky;
             top: 0;
             background: #fff;
@@ -30,387 +34,335 @@
         }
 
         .bi-logo {
-            font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 900;
             font-size: 24px;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
             color: #1a1a1a;
             text-transform: uppercase;
-            line-height: 1;
-        }
-        
-        .bi-logo span { color: #0073bb; }
-
-        .login-text {
-            font-size: 12px;
-            font-weight: 700;
-            color: #0073bb;
-            text-transform: uppercase;
-        }
-
-        /* LAYOUT GRID */
-        .main-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
             display: flex;
-            padding: 20px;
+            align-items: center;
+            cursor: pointer;
         }
 
-        .article-col {
-            flex: 2;
-            padding-right: 40px;
-            max-width: 700px;
+        .bi-logo span { color: #0073bb; margin-left: 2px; }
+
+        .content-container {
+            max-width: 728px;
+            margin: 0 auto;
+            padding: 30px 20px 0px 20px;
         }
 
-        .sidebar-col {
-            flex: 1;
-            padding-left: 20px;
-            border-left: 1px solid #eee;
-            display: none; /* Hidden on mobile, shown on desktop */
-        }
-
-        @media(min-width: 900px) {
-            .sidebar-col { display: block; }
-        }
-
-        /* BRIEFING BOX */
-        .briefing-box {
-            background-color: #f7f7f7;
-            padding: 15px 20px;
-            border-left: 4px solid #0073bb;
-            font-size: 15px;
+        /* BRIEFING INTRO STYLE */
+        .briefing-intro {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
             line-height: 1.5;
             color: #333;
             margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e2e2;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #0073bb;
         }
 
-        /* TYPOGRAPHY */
+        .briefing-intro strong {
+            font-weight: 700;
+        }
+
+        /* ARTICLE TYPOGRAPHY */
         .badge {
             display: inline-block;
-            background-color: #cc0000;
+            background-color: #e00;
             color: #fff;
-            font-size: 10px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            padding: 3px 6px;
-            margin-bottom: 10px;
+            padding: 4px 6px;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
         }
 
         h1 {
             font-family: 'LabGrotesque-Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 800;
-            font-size: 30px; /* Reduced from 36 */
+            font-size: 34px;
             line-height: 1.1;
             color: #000;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             letter-spacing: -0.5px;
         }
 
         h2.subhead {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'LabGrotesque-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 400;
-            font-size: 16px; /* Reduced from 18 */
+            font-size: 18px;
             line-height: 1.4;
             color: #555;
-            margin-bottom: 20px;
-        }
-
-        /* KEY POINTS BOX */
-        .key-points {
-            background: #fff;
-            border-top: 1px solid #000;
-            border-bottom: 1px solid #000;
-            padding: 20px 0;
-            margin-bottom: 30px;
-        }
-        
-        .kp-title { font-weight: 800; font-size: 12px; text-transform: uppercase; margin-bottom: 10px; }
-        .kp-list li { 
-            font-size: 15px; 
-            margin-bottom: 8px; 
-            line-height: 1.4; 
-            padding-left: 15px;
-            position: relative;
-        }
-        .kp-list li::before {
-            content: "•"; color: #0073bb; font-weight: bold; position: absolute; left: 0;
+            margin-bottom: 25px;
         }
 
         /* BYLINE */
         .byline-wrapper {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 13px;
         }
 
         .author-avatar {
-            width: 40px;
-            height: 40px;
-            background-color: #eee;
+            width: 44px;
+            height: 44px;
+            background-color: #f2f2f2;
             border-radius: 50%;
             margin-right: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            font-weight: bold;
             color: #0073bb;
             font-size: 18px;
         }
 
         .byline-info { display: flex; flex-direction: column; }
-        .author-name { font-weight: 700; color: #0073bb; font-size: 13px; }
-        .timestamp { color: #666; font-size: 11px; margin-top: 2px; }
+        .author-name { font-weight: 700; color: #0073bb; margin-bottom: 3px; }
+        .timestamp { color: #666; margin-top: 3px; font-size: 12px; }
 
-        /* BODY CONTENT */
+        /* BODY TEXT */
         .article-body {
             font-family: 'Georgia', serif;
-            font-size: 17px; /* Reduced from 20 */
-            line-height: 1.6;
+            font-size: 19px;
+            line-height: 1.7;
             color: #222;
         }
 
-        .article-body p { margin-bottom: 22px; }
+        .article-body p { margin-bottom: 24px; }
 
         .article-body h3 {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 800;
-            font-size: 20px;
-            margin-top: 35px;
+            font-weight: 700;
+            font-size: 22px;
+            margin-top: 40px;
             margin-bottom: 12px;
             color: #000;
         }
 
-        /* DATA VIZ: LINE GRAPH */
-        .chart-box {
-            border: 1px solid #e2e2e2;
-            padding: 20px;
-            margin: 30px 0;
-            background: #fff;
+        .article-body ul {
+            margin-bottom: 24px;
+            list-style: none;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
         }
 
-        .chart-header {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #000;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
-
-        .svg-container {
-            width: 100%;
-            height: 250px;
+        .article-body ul li {
             position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
         }
 
-        .chart-caption {
-            font-size: 12px;
-            color: #666;
-            font-style: italic;
-            margin-top: 10px;
-            font-family: sans-serif;
-        }
-
-        /* SIDEBAR STYLES */
-        .sidebar-title {
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 12px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-        }
-
-        .sidebar-item {
-            margin-bottom: 20px;
-        }
-
-        .sidebar-link {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
+        .article-body ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
             color: #0073bb;
-            text-decoration: none;
-            line-height: 1.4;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 1;
+            top: 3px;
         }
-        .sidebar-link:hover { text-decoration: underline; }
-
-        .sidebar-meta { font-size: 11px; color: #888; margin-top: 4px; }
 
         /* LINKS */
-        a.body-link { color: #0073bb; text-decoration: underline; text-decoration-color: #b3d9ef; }
-        a.body-link:hover { background-color: #eaf5ff; }
+        a { color: #0073bb; text-decoration: none; border-bottom: 1px solid #0073bb; }
+        a:hover { background-color: #eaf5ff; }
 
+        /* FOOTER / READ NEXT SECTION */
+        .read-next-section {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e2e2e2;
+        }
+
+        .read-next-container {
+            max-width: 728px;
+            margin: 0 auto;
+        }
+
+        .read-next-label {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .read-next-card {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .read-next-card:last-child { border-bottom: none; }
+
+        .read-next-headline {
+            font-weight: 700;
+            font-size: 18px;
+            color: #0073bb;
+            margin-bottom: 5px;
+            display: block;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .read-next-meta {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 40px 0;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #555;
+            font-size: 16px;
+        }
+
+        @media(max-width: 600px) {
+            h1 { font-size: 28px; }
+            .content-container { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- NAV BAR -->
+<div class="page-wrapper">
+    
+    <!-- BI HEADER BAR -->
     <div class="header-bar">
         <div class="bi-logo">BUSINESS<span>INSIDER</span></div>
-        <div class="login-text">Log In</div>
     </div>
 
-    <div class="main-wrapper">
+    <div class="content-container">
         
-        <!-- MAIN COLUMN -->
-        <div class="article-col">
-            
-            <!-- BRIEFING INTRO -->
-            <div class="briefing-box">
-                <strong>Welcome back!</strong> Today we are conducting a performance review of a specific long-distance relationship. The data suggests that while "exam stress" is a short-term volatility marker, the long-term fundamentals of the partner in question (Aaradhya) are stronger than ever. Grab a coffee. Let's look at the numbers.
-            </div>
+        <!-- THE "WELCOME BACK" BRIEFING INTRO -->
+        <div class="briefing-intro">
+            <strong>Welcome back!</strong> Most analysts define "relationship success" by proximity—how often you see each other. But what if the strongest indicator of long-term value is actually <em>distance</em>? I looked at the metrics of my own relationship before a high-stakes exam week. <br><br>Let’s dive into the data.
+        </div>
 
-            <!-- HEADLINES -->
-            <span class="badge">Life</span>
-            <h1>I’ve been in a long-distance relationship for 8 months. Here’s what 2,083 kilometers taught me about seeing someone’s real value.</h1>
-            <h2 class="subhead">My girlfriend has a high-stakes exam on Thursday. I ran a comprehensive audit, and I’m not worried about her performance metrics — I’m in awe of the operational resilience she’s already demonstrated.</h2>
+        <!-- ARTICLE METADATA -->
+        <span class="badge">Life</span>
+        <h1>I’ve been in a long-distance relationship for 8 months. Here’s what 2,083 kilometers taught me about seeing someone’s real value.</h1>
+        <h2 class="subhead">My girlfriend has a high-stakes exam on Thursday. I’m not worried about her performance metrics — I’m in awe of the operational resilience she’s already demonstrated.</h2>
 
-            <!-- KEY POINTS SUMMARY -->
-            <div class="key-points">
-                <div class="kp-title">Key Points</div>
-                <ul class="kp-list">
-                    <li>Long-distance relationships remove "presence bias," forcing you to evaluate character based on actions rather than proximity.</li>
-                    <li>Specific data points, such as shipping logistics for minor items, reveal high-level emotional intelligence.</li>
-                    <li>Exam results are "lagging indicators," while resilience and kindness are "leading indicators" of long-term success.</li>
-                </ul>
-            </div>
-
-            <!-- BYLINE -->
-            <div class="byline-wrapper">
-                <div class="author-avatar">N</div>
-                <div class="byline-info">
-                    <div class="author-name">Niv</div>
-                    <div class="timestamp">Feb 18, 2026, 7:30 AM IST</div>
-                </div>
-            </div>
-
-            <!-- ARTICLE BODY -->
-            <div class="article-body">
-                <p>My girlfriend Aaradhya and I have been together for eight months. We’ve FaceTimed once. We live 2,083 kilometers apart. And on Thursday, she faces an exam that represents a critical Q1 deliverable for her academic career.</p>
-
-                <p>If you look at the surface-level metrics, the situation screams "high stress." But having analyzed our relationship dynamics from a distance, I’ve realized that her value proposition has nothing to do with a test score.</p>
-                
-                <p>When you remove physical proximity from the equation, you can’t rely on "hanging out" to smooth over the cracks. You are forced to conduct deep due diligence on your partner’s character. You see what they’re actually made of.</p>
-                
-                <p>And what I see is someone who has been crushing it this whole time, regardless of market volatility.</p>
-
-                <h3>The Acquisition Strategy: Cold Outreach & Data Volume</h3>
-                
-                <p>We met via the modern acquisition channel: Instagram DMs. Eight months ago, I initiated contact with zero expectations of a return on investment (ROI). She replied. That reply pivoted into a conversation, which scaled rapidly into daily voice notes.</p>
-
-                <p>The data doesn't lie: Those voice notes now occupy approximately 60% of my phone’s storage capacity. In the attention economy, that is a massive capital allocation.</p>
-
-                <p>Now, I track her flights with the precision of a logistics manager. I know her coffee order. I’ve watched her explain cellular respiration with the energy of a founder pitching a unicorn startup. I’ve heard her break down biology concepts, Harry Potter lore, and murder mysteries at 2 AM.</p>
-
-                <!-- DATA VIZ SECTION -->
-                <div class="chart-box">
-                    <div class="chart-header">Figure 1: Aaradhya's "Character Value" vs. Market Stress</div>
-                    <div class="svg-container">
-                        <!-- SVG LINE CHART -->
-                        <svg viewBox="0 0 400 200" style="width:100%; height:100%;">
-                            <!-- Grid lines -->
-                            <line x1="40" y1="180" x2="380" y2="180" stroke="#eee" stroke-width="1"/>
-                            <line x1="40" y1="140" x2="380" y2="140" stroke="#eee" stroke-width="1"/>
-                            <line x1="40" y1="100" x2="380" y2="100" stroke="#eee" stroke-width="1"/>
-                            <line x1="40" y1="60" x2="380" y2="60" stroke="#eee" stroke-width="1"/>
-                            
-                            <!-- Axes -->
-                            <line x1="40" y1="20" x2="40" y2="180" stroke="#333" stroke-width="2"/>
-                            <line x1="40" y1="180" x2="380" y2="180" stroke="#333" stroke-width="2"/>
-
-                            <!-- Labels -->
-                            <text x="10" y="100" font-family="Arial" font-size="10" fill="#666" transform="rotate(-90 10,100)">Perceived Value</text>
-                            <text x="200" y="195" font-family="Arial" font-size="10" fill="#666">Time (8 Months)</text>
-
-                            <!-- Line 1: Stress (Volatile) -->
-                            <polyline points="40,160 100,140 160,150 220,100 280,120 340,60 380,40" 
-                                      fill="none" stroke="#cc0000" stroke-width="2" stroke-dasharray="4"/>
-                            
-                            <!-- Line 2: Value (Steady Growth) -->
-                            <polyline points="40,160 100,130 160,110 220,90 280,60 340,30 380,20" 
-                                      fill="none" stroke="#0073bb" stroke-width="4"/>
-
-                            <!-- Legend -->
-                            <circle cx="280" cy="150" r="4" fill="#0073bb"/>
-                            <text x="290" y="153" font-family="Arial" font-size="10">Long Term Value</text>
-                            <circle cx="280" cy="165" r="4" fill="#cc0000"/>
-                            <text x="290" y="168" font-family="Arial" font-size="10">Exam Stress</text>
-                        </svg>
-                    </div>
-                    <div class="chart-caption">Analysis: While exam stress (red) creates short-term volatility, the underlying asset value (blue) continues to trend upward. Source: Niv Internal Analytics.</div>
-                </div>
-
-                <h3>Distance forces you to audit the 'Soft Skills'</h3>
-
-                <p>When you’re in the same city, you can rely on presence. Long distance requires active management. It strips away the superficial layers and reveals how a person actually operates under pressure.</p>
-
-                <p>Here is a specific case study regarding Aaradhya:</p>
-
-                <p>I once mentioned—in a completely throwaway comment—that I needed nail clippers. Most people would treat that as noise. Aaradhya treated it as actionable data. She bought them. She navigated the shipping logistics to get them 2,083 kilometers to me.</p>
-
-                <p>That isn't just a romantic gesture; it’s an indicator of high-level awareness. She pays attention to the details. She manages family dynamics, friends, school, and a boyfriend who is objectively intense, and she does it while remaining genuinely kind.</p>
-
-                <h3>Why I’m not saying “You’ve got this”</h3>
-
-                <p>As Thursday approaches, the pressure is mounting. Corporate platitudes like "you’ve got this" or "just believe in yourself" feel empty. They often inadvertently increase the pressure by setting a KPI for success.</p>
-
-                <p>Instead, I am looking at her historical performance.</p>
-
-                <p>I’ve watched her handle eight months of complex logistics. I’ve watched her balance competing priorities. She is already doing the hard work. The exam on Thursday is just one day. It measures recall under pressure.</p>
-                
-                <p>It fails to measure the metrics that actually matter for long-term success:</p>
-                <ul>
-                    <li><strong>Resilience:</strong> The ability to keep going when the syllabus is overwhelming.</li>
-                    <li><strong>Emotional Intelligence:</strong> How you treat stakeholders (people) when you are stressed.</li>
-                    <li><strong>Curiosity:</strong> The way she lights up when talking about biology because she genuinely wants to understand the mechanics of life.</li>
-                    <li><strong>Commitment:</strong> The ability to maintain a deep connection across 2,000+ kilometers.</li>
-                </ul>
-
-                <h3>The Bottom Line</h3>
-
-                <p>I notice how she manages her workload without playing the victim. She just executes. I notice that she’s beautiful, obviously, but that’s just the frontend UI. The backend architecture—her mind, her kindness, her resilience—is where the real value lies.</p>
-
-                <p>Thursday will come. The exam will happen. The results will eventually be released. But the outcome of that test will not change the fundamental equation.</p>
-
-                <p>A good result won't make her more valuable. A bad result won't make her less valuable.</p>
-
-                <p>She has already proven her capabilities. She proves them every day by showing up. On Friday, the pressure will lift, and life will resume its normal operations.</p>
-
-                <p>And I’ll still be here, 2,083 kilometers away, tracking her flights and listening to her voice notes, holding my position. I'm not waiting for the exam results to decide how I feel. I decided eight months ago.</p>
-
-                <p>She is brilliant, she is resilient, and she is enough.</p>
+        <!-- BYLINE -->
+        <div class="byline-wrapper">
+            <div class="author-avatar">N</div>
+            <div class="byline-info">
+                <div class="author-name">Niv <span style="font-weight:400; color:#000;">as told to Niv</span></div>
+                <div class="timestamp">Feb 18, 2026, 7:30 AM IST &nbsp;•&nbsp; 6 min read</div>
             </div>
         </div>
 
-        <!-- SIDEBAR (FAKE READ NEXT) -->
-        <div class="sidebar-col">
-            <div class="sidebar-title">Trending Now</div>
+        <!-- MAIN BODY -->
+        <div class="article-body">
+            <p>My girlfriend Aaradhya and I have been together for eight months. We’ve FaceTimed once. We live 2,083 kilometers apart. And on Thursday, she has an exam that represents a significant Q1 deliverable for her academic career.</p>
+
+            <p>The standard narrative here is anxiety. But here’s what I’m realizing: When you can’t physically be with someone, you are forced to conduct a different kind of due diligence. You see what they’re actually made of. </p>
             
-            <div class="sidebar-item">
-                <a href="#" class="sidebar-link">Why long-distance couples are 40% more likely to develop advanced communication skills</a>
-                <div class="sidebar-meta">Strategy • 4h ago</div>
-            </div>
+            <p>And what I see is someone who has been crushing it this whole time, whether she realizes it or not.</p>
 
-            <div class="sidebar-item">
-                <a href="#" class="sidebar-link">The 'Nail Clipper Index': How small gestures predict relationship longevity</a>
-                <div class="sidebar-meta">Life • 1d ago</div>
-            </div>
+            <h3>The acquisition strategy: Cold outreach via Instagram</h3>
+            
+            <p>We met the modern way: Instagram DMs. Eight months ago, I initiated contact with zero expectations of a return on investment. She replied. That reply pivoted into a conversation, which scaled rapidly into daily voice notes.</p>
 
-            <div class="sidebar-item">
-                <a href="#" class="sidebar-link">Top analysts agree: Aaradhya is currently undervalued by the exam board</a>
-                <div class="sidebar-meta">Markets • Just now</div>
-            </div>
+            <p>Those voice notes now occupy roughly 60% of my phone’s total storage capacity. That is a hard data point that proves just how much we have to say to each other.</p>
 
-            <div class="sidebar-item">
-                <a href="#" class="sidebar-link">5 signs your boyfriend tracks your flights (and why it's actually endearing)</a>
-                <div class="sidebar-meta">Travel • 2d ago</div>
-            </div>
+            <p>Now, I track her flights like a logistics manager. I know her coffee order. I’ve watched her explain cellular respiration with the same energy most people reserve for a viral Netflix series. I’ve heard her break down biology concepts, Harry Potter lore, and murder mysteries at hours when most people are offline.</p>
+
+            <p>Somewhere in that process, I fell completely in love with someone I’ve technically seen in person zero times.</p>
+
+            <h3>Distance forces you to audit character</h3>
+
+            <p>When you’re in the same city, you can rely on "presence bias"—hanging out effectively masks compatibility issues. Long distance doesn't give you that luxury. You have to look at the fundamentals.</p>
+
+            <p>Here is a specific use-case that defines Aaradhya:</p>
+
+            <p>I once mentioned, casually, that I needed nail clippers. It was a throwaway comment. She remembered. She bought them. She handled the shipping logistics to get them 2,083 kilometers to me.</p>
+
+            <p>That isn't just a gift; it's a signal of high-level competence and care. She pays attention to the small data. She manages family dynamics, friends, school, and a boyfriend who is objectively intense, and she does it while remaining genuinely kind. That is not a performance. That is her baseline operation.</p>
+
+            <h3>Why I’m not focused on Thursday's results</h3>
+
+            <p>She’s stressed about the exam. I can tell from the text frequency and tone. The exam is real, and the stakes are high.</p>
+
+            <p>But I am not going to offer empty corporate platitudes like "you’ve got this." Instead, I am looking at her track record.</p>
+
+            <p>I’ve watched her handle eight months of distance, academic pressure, and the complexity of our situation. She is already doing the hard thing. The exam on Thursday is just one day. It measures recall under pressure.</p>
+            
+            <p><strong>Here is what exams fail to measure (Key Performance Indicators for Life):</strong></p>
+            <ul>
+                <li><strong>Character Resilience:</strong> Staying kind when the syllabus is overwhelming.</li>
+                <li><strong>Emotional Intelligence:</strong> Managing stakeholders (family/friends) with grace.</li>
+                <li><strong>Commitment:</strong> The ability to maintain a relationship across 2,000+ km.</li>
+                <li><strong>Worth:</strong> Whether you are someone worth knowing.</li>
+            </ul>
+
+            <p>Aaradhya is worth knowing. That valuation is stable. It is not contingent on Thursday’s results.</p>
+
+            <h3>The view from 2,083 kilometers away</h3>
+
+            <p>I notice how she talks about biology like it’s fascinating—because to her, it is. That curiosity is a competitive advantage. I notice how she manages everything without complaining. She just executes.</p>
+
+            <p>I notice that she’s beautiful, obviously, but the real value is in how she thinks and how she shows up.</p>
+
+            <p>I’m not worried about the exam. I’m already proud of her for the operational resilience she shows every single day. Her value is inherent. It exists independent of external validation or test scores.</p>
+
+            <h3>The post-exam outlook</h3>
+            
+            <p>Thursday will come and go. The exam will be over. Life will continue.</p>
+
+            <p>And I’ll still be here, 2,083 kilometers away, tracking her flights and listening to her voice notes, waiting for the day when the distance metric finally hits zero.</p>
+
+            <p>Until then, I’m just watching someone I love be brilliant, kind, and resilient. That is enough. She is enough.</p>
+            
+            <p>The market conditions may change on Thursday, but my investment in her? That’s holding steady forever.</p>
         </div>
-
     </div>
+
+    <!-- READ NEXT / FOOTER SECTION -->
+    <div class="read-next-section">
+        <div class="read-next-container">
+            <div class="read-next-label">Read next</div>
+            
+            <div class="read-next-card">
+                <a href="#" class="read-next-headline">Analysis: Why biology students make the most resilient long-term partners</a>
+                <div class="read-next-meta">Science • 4h ago</div>
+            </div>
+
+            <div class="read-next-card">
+                <a href="#" class="read-next-headline">Opinion: Tracking your partner's flight isn't obsessive, it's logistical love</a>
+                <div class="read-next-meta">Travel • 1d ago</div>
+            </div>
+
+            <div class="read-next-card">
+                <a href="#" class="read-next-headline">The 'Nail Clipper Index': How small gestures predict relationship longevity</a>
+                <div class="read-next-meta">Strategy • 2d ago</div>
+            </div>
+
+            <div class="final-message">
+                &copy; 2026 Niv Insider. All rights reserved. <br>
+                Dedicated to Aaradhya, who is going to crush it.
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
