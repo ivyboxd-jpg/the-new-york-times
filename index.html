@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>In Defense of Taking Your Time - The New York Times</title>
     <style>
-        /* NYT TYPEFACE REPLICA - Google Font Fallbacks */
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+        /* NYT REPLICA DESIGN SYSTEM */
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;500;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900&display=swap');
 
         :root {
             --nyt-black: #121212;
             --nyt-gray: #666666;
             --nyt-border: #E2E2E2;
             --nyt-red: #A21717;
-            --font-main: 'Lora', serif; /* NYT Imperial */
+            --font-serif: 'Lora', serif; /* NYT Imperial */
             --font-head: 'Playfair Display', serif; /* NYT Cheltenham */
             --font-sans: 'Libre Franklin', sans-serif; /* NYT Franklin */
         }
@@ -23,100 +23,61 @@
             padding: 0;
             background-color: #ffffff;
             color: var(--nyt-black);
-            font-family: var(--font-main);
+            font-family: var(--font-serif);
             -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
 
-        /* --- INTENTIONAL TOP NAVIGATION --- */
-        .nyt-nav {
-            border-bottom: 1px solid var(--nyt-border);
-            padding: 10px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-sans);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 700;
-        }
-
-        .nyt-masthead {
+        /* --- TOP LOGO AREA --- */
+        .masthead {
             text-align: center;
-            padding: 30px 0 10px;
-            border-bottom: 4px double #000;
-            max-width: 1200px;
+            padding: 20px 0 8px;
+            max-width: 1100px;
             margin: 0 auto;
+            border-bottom: 1px solid #000;
         }
 
         .nyt-logo {
             font-family: var(--font-head);
             font-weight: 900;
-            font-size: 52px;
-            letter-spacing: -2px;
+            font-size: 36px;
+            letter-spacing: -1.2px;
             text-decoration: none;
             color: #000;
             display: block;
+            margin-bottom: 4px;
         }
 
-        .section-nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            border-bottom: 1px solid #000;
+        .masthead-sub {
             display: flex;
-            justify-content: center;
-            padding: 10px 0;
+            justify-content: space-between;
             font-family: var(--font-sans);
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.08em;
+            padding-bottom: 5px;
         }
 
-        /* --- ARTICLE LAYOUT GRID --- */
-        .page-container {
-            max-width: 1200px;
-            margin: 50px auto;
+        /* --- ARTICLE LAYOUT --- */
+        .article-wrap {
+            max-width: 1050px;
+            margin: 45px auto;
             display: grid;
-            grid-template-columns: 180px 1fr 300px;
-            gap: 50px;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
             padding: 0 20px;
         }
 
-        /* --- LEFT COLUMN: Meta & Section Branding --- */
-        .left-column {
-            font-family: var(--font-sans);
+        .article-content {
+            max-width: 600px;
         }
 
-        .modern-love-icon {
-            border-top: 1px solid #000;
-            padding-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        .modern-love-icon h3 {
-            font-family: var(--font-head);
-            font-size: 18px;
-            margin: 0;
-        }
-
-        .meta-data {
-            font-size: 11px;
-            color: var(--nyt-gray);
-            text-transform: uppercase;
-            line-height: 1.8;
-            letter-spacing: 0.05em;
-        }
-
-        /* --- MAIN ARTICLE COLUMN --- */
-        .article-main {
-            max-width: 620px;
-        }
-
-        .opinion-tag {
+        /* --- HEADLINE & BYLINE --- */
+        .section-label {
             font-family: var(--font-sans);
             font-weight: 700;
-            font-size: 13px;
+            font-size: 11px;
             color: var(--nyt-red);
             text-transform: uppercase;
             margin-bottom: 10px;
@@ -125,229 +86,206 @@
 
         h1.headline {
             font-family: var(--font-head);
-            font-size: 48px;
-            line-height: 1.05;
+            font-size: 34px;
+            line-height: 1.1;
             font-weight: 700;
-            margin: 0 0 20px 0;
-            letter-spacing: -0.02em;
+            margin: 0 0 15px 0;
+            letter-spacing: -0.01em;
         }
 
         .subhead {
-            font-size: 22px;
-            line-height: 1.4;
+            font-size: 18px;
+            line-height: 1.35;
             color: #333;
-            margin-bottom: 35px;
-            font-style: normal;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
-        .byline-container {
+        .byline-row {
             border-top: 1px solid var(--nyt-border);
             border-bottom: 1px solid var(--nyt-border);
-            padding: 15px 0;
-            margin-bottom: 40px;
-        }
-
-        .byline {
+            padding: 10px 0;
+            margin-bottom: 35px;
             font-family: var(--font-sans);
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
+            font-size: 12px;
         }
 
-        /* --- ARTICLE BODY --- */
-        .content p {
-            font-size: 20px;
-            line-height: 1.7;
-            margin-bottom: 28px;
-            color: #121212;
-            word-spacing: -0.02em;
+        .author { font-weight: 700; text-transform: uppercase; }
+        .timestamp { color: var(--nyt-gray); margin-left: 8px; }
+
+        /* --- TEXT STYLING --- */
+        .article-body p {
+            font-size: 17px;
+            margin-bottom: 22px;
+            color: #1a1a1a;
+            letter-spacing: 0.01em;
         }
 
         .drop-cap::first-letter {
             font-family: var(--font-head);
             float: left;
-            font-size: 90px;
+            font-size: 70px;
             line-height: 0.65;
-            padding: 10px 12px 0 0;
+            padding: 8px 10px 0 0;
+            font-weight: 700;
         }
 
         h2.interhead {
             font-family: var(--font-head);
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
-            margin: 55px 0 25px;
+            margin: 40px 0 15px;
         }
 
         .pull-quote {
             font-family: var(--font-head);
-            font-size: 32px;
+            font-size: 24px;
             font-style: italic;
             text-align: center;
-            margin: 60px -80px;
-            padding: 40px 0;
+            margin: 40px 0;
+            padding: 25px 0;
             border-top: 1px solid var(--nyt-border);
             border-bottom: 1px solid var(--nyt-border);
-            line-height: 1.2;
+            line-height: 1.25;
         }
 
-        /* --- RIGHT COLUMN: Intentional Sidebars --- */
+        /* --- SIDEBAR --- */
         .sidebar-section {
             border-top: 2px solid #000;
-            padding-top: 15px;
-            margin-bottom: 50px;
+            padding-top: 12px;
+            margin-bottom: 35px;
         }
 
         .sidebar-title {
             font-family: var(--font-sans);
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 0.1em;
+            margin-bottom: 15px;
         }
 
-        .fact-box {
-            font-family: var(--font-main);
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .fact-item {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+        .profile-item {
+            margin-bottom: 18px;
+            padding-bottom: 10px;
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .fact-label {
+        .item-label {
             display: block;
             font-family: var(--font-sans);
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
-            color: var(--nyt-red);
+            color: #888;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
-        footer.article-footer {
-            margin-top: 100px;
+        .item-value {
+            font-family: var(--font-serif);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 0;
             border-top: 1px solid #000;
-            padding: 40px 0;
             text-align: center;
-            max-width: 1200px;
-            margin: 100px auto;
+            font-family: var(--font-head);
+            font-size: 18px;
+            font-weight: 900;
         }
 
-        @media (max-width: 1000px) {
-            .page-container { grid-template-columns: 1fr; }
-            .left-column, .sidebar-section { display: none; }
-            .pull-quote { margin: 40px 0; }
+        @media (max-width: 900px) {
+            .article-wrap { grid-template-columns: 1fr; }
+            .sidebar-section { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="nyt-nav">
-        <span>Tuesday, February 18, 2026</span>
-        <span style="letter-spacing: 0.2em;">The New York Times</span>
-    </nav>
-
-    <header class="nyt-masthead">
+    <header class="masthead">
         <a href="#" class="nyt-logo">The New York Times</a>
+        <div class="masthead-sub">
+            <span>Tuesday, February 18, 2026</span>
+            <span>Opinion | Modern Love</span>
+        </div>
     </header>
 
-    <div class="section-nav">
-        Opinion &nbsp;&nbsp; | &nbsp;&nbsp; Modern Love
-    </div>
-
-    <div class="page-container">
+    <div class="article-wrap">
         
-        <!-- LEFT COLUMN: AUTHENTIC CONTEXT -->
-        <aside class="left-column">
-            <div class="modern-love-icon">
-                <h3>Modern Love</h3>
-            </div>
-            <div class="meta-data">
-                8 Minute Read<br>
-                By Niv<br>
-                2,083 KM OF DISTANCE<br>
-                FEBRUARY 18, 2026
-            </div>
-        </aside>
+        <main class="article-content">
+            <span class="section-label">Modern Love</span>
+            <h1 class="headline">The Physics of Being Enough</h1>
+            <p class="subhead">On the quiet strength of a woman navigating the invisible laws of magnetism, and why her worth is a fundamental constant that no exam can alter.</p>
 
-        <!-- MAIN ARTICLE COLUMN -->
-        <main class="article-main">
-            <span class="opinion-tag">Opinion</span>
-            <h1 class="headline">In Defense of Taking Your Time: A Love Letter to Someone Who Doesn’t Need to Prove Anything</h1>
-            <p class="subhead">On the quiet strength of a woman navigating the invisible forces of Physics, and why her worth is a fundamental constant that no exam can alter.</p>
-
-            <div class="byline-container">
-                <span class="byline">By Niv</span>
+            <div class="byline-row">
+                <span class="author">By Niv</span>
+                <span class="timestamp">Feb. 18, 2026</span>
             </div>
 
-            <article class="content">
-                <p class="drop-cap">There is a profound beauty in watching someone you love simply exist—to be present in the world without the burden of performance or the need to provide evidence of their worth. I have spent eight months observing Aaradhya, and I have learned that the most vital parts of a person are often the ones that an exam is designed to ignore.</p>
+            <article class="article-body">
+                <p class="drop-cap">Aaradhya’s voice comes through my phone not as a collection of data, but as a quiet anchor against the frantic static of the upcoming 20th. She is currently immersed in the study of magnetism—a world of invisible fields and polarities that govern how the universe pulls toward or pushes away from itself. It is a rigorous, demanding discipline that attempts to quantify the unseen. But as I’ve watched her navigate these last eight months, I’ve realized that while she is busy calculating the flux of a magnetic field, she is actually embodying a far more important law: the law of inherent value.</p>
 
-                <p>She is currently deep in the world of Physics, grappling with the laws of Magnetism and the way fields of influence govern the universe. It is a rigorous, demanding subject that attempts to quantify the invisible. But while she is busy calculating the flux of a magnetic field, she is actually embodying a far more important law: the law of inherent value. In a world that treats people like variables to be solved, she remains a fundamental constant.</p>
+                <p>In physics, we talk about "Fundamental Constants"—values that do not change, regardless of the experiment. I have learned that Aaradhya’s worth is one of these constants. It is not a variable dependent on the outcome of an exam or the stressful oscillations of a study week. It was established the moment she decided to be kind in a world that often views kindness as an optional secondary trait.</p>
 
-                <h2 class="interhead">The Magnetism of Character</h2>
-                <p>Magnetism is the study of attraction and repulsion—of invisible forces that move the world. It is a perfect metaphor for her character. Even when she is exhausted, even when the weight of the 20th feels like a crushing atmospheric pressure, her "field" remains one of grace. She manages family, friends, and the heavy architecture of her studies with a steady resilience that seems to create order where there should be chaos.</p>
-
-                <p>I see her differently than an examiner will. I see the way she explains a concept not as a memorized fact, but as a secret she has uncovered about how life works. I see her kindness, which is not a performance but a default setting. Magnetism proves that the strongest forces are often the ones you cannot see; her worth is exactly like that—invisible to a test, but undeniable to everyone who knows her.</p>
+                <h2 class="interhead">Invisible Fields</h2>
+                <p>Magnetism is essentially the study of how one thing can influence another without ever touching it. It is a perfect metaphor for her character. Even when she is exhausted, or when the weight of her responsibilities feels like a crushing atmospheric pressure, her "field" remains one of grace. She manages family, friends, and the heavy architecture of her studies with a steady resilience that seems to create order where there should be chaos.</p>
+                
+                <p>I see her differently than an examiner will. I see the way she explains a concept not as a memorized fact, but as a secret she’s uncovered about how life works. I see her resilience in maintaining a focus that would break most people. That isn’t just academic discipline; it is a rare kind of spiritual strength that doesn't need a score to prove its intensity.</p>
 
                 <div class="pull-quote">
-                    “The exam on the 20th will measure what she can recall, but it cannot measure what she gives—which is a much rarer commodity.”
+                    "She is a fundamental constant in a world of variables. Her worth isn't something she earns; it is who she is."
                 </div>
 
-                <h2 class="interhead">The Physics of Worth</h2>
-                <p>Physics teaches us that energy cannot be created or destroyed, only transformed. Aaradhya transforms her stress into a quiet, focused determination. She takes her work seriously—not because she seeks the validation of a score, but because she genuinely respects the machinery of existence. She wants to understand how the world stays together.</p>
+                <h2 class="interhead">The Real Metrics</h2>
+                <p>On the 20th, a paper will ask her to calculate the intensity of a field or the motion of a particle. It is a narrow metric. Here is what it won't measure: The way her voice changes when she talks about the stories that shaped her, from <i>Gilmore Girls</i> to <i>Harry Potter</i>. The way she remembered a throwaway comment about nail clippers eight months ago and acted on it. Her genuine, unperformative care for the people in her orbit.</p>
+                
+                <p>An exam is a single data point in a life that is a vast, interconnected map. It is a blip in a much larger story. I’m not saying the exam doesn’t matter; I’m saying it doesn’t change the fundamental equation of who she is. It doesn’t add to her, and it certainly cannot subtract from her. She is already enough—exactly as she is, in the tired and stressed moments just as much as the brilliant ones.</p>
 
-                <p>This is what I have heard in hundreds of voice notes—brief, melodic dispatches that carry the tone of her day. It is what I saw when she remembered a throwaway comment about nail clippers and acted on it, proving that she is paying attention to the world when most are only paying attention to themselves. The exam will ask her to define a field's intensity, but it will never capture the intensity of her care.</p>
+                <h2 class="interhead">Beyond the Flux</h2>
+                <p>February 21st will arrive. The magnetism questions will be answered and the pens will be capped. The stress will begin to dissipate, and the world will move on to the next "stressful thing." My hope for her is that she realizes the exam didn't change her. It didn't add a single inch to her height as a person, and it didn't take anything away.</p>
 
-                <h2 class="interhead">Beyond the 20th</h2>
-                <p>When the sun rises on February 21st, the magnetism questions will be answered and the pens will be capped. The stress will begin to dissipate, and the world will move on to the next "stressful thing." My hope for her is that she realizes the exam didn't change her. It didn't add a single inch to her height as a person, and it didn't take anything away.</p>
-
-                <p>I am not telling her "she’s got this" to build pressure. I am telling her she is already enough. She is perfect in the sense that I wouldn’t change a single thing about her—not even the parts she is worried about. She doesn't owe the world proof of her brilliance. Her existence is the only proof required.</p>
+                <p>I am not telling her "she’s got this" to encourage a specific outcome. I am telling her she is already perfect—not in the sense of being flawless, but in the sense of being complete. She doesn't owe the world proof of her brilliance. Her existence, her kindness, and the way she makes the world a habitable place for those around her is the only proof required.</p>
+                
+                <p style="font-size: 14px; color: #666; font-style: italic; border-top: 1px solid #eee; padding-top: 15px;">Niv is a writer and frequent contributor to Modern Love. He writes about the invisible threads of connection and the geometry of distance.</p>
             </article>
         </main>
 
-        <!-- RIGHT SIDEBAR: INTENTIONAL NARRATIVE PIECES -->
-        <aside class="left-col">
+        <aside class="sidebar">
             <div class="sidebar-section">
-                <span class="sidebar-title">Profile of a Subject</span>
-                <div class="fact-box">
-                    <div class="fact-item">
-                        <span class="fact-label">Academic Inquiry</span>
-                        The Laws of Physics & Magnetism
+                <span class="sidebar-title">The Subject Profile</span>
+                <div class="profile-box">
+                    <div class="profile-item">
+                        <span class="item-label">Focus Area</span>
+                        <span class="item-value">Physics & Magnetism</span>
                     </div>
-                    <div class="fact-item">
-                        <span class="fact-label">Character Note</span>
-                        Radical kindness as a default setting; remembers the small things.
+                    <div class="profile-item">
+                        <span class="item-label">Core Trait</span>
+                        <span class="item-value">Intentional Kindness</span>
                     </div>
-                    <div class="fact-item">
-                        <span class="fact-label">Cultural North Stars</span>
-                        Harry Potter, Gilmore Girls, and the pursuit of understanding.
+                    <div class="profile-item">
+                        <span class="item-label">Narrative Anchors</span>
+                        <span class="item-value">Stars Hollow, Hogwarts</span>
                     </div>
-                    <div class="fact-item" style="border-bottom: none;">
-                        <span class="fact-label">Current Status</span>
-                        Wholly, completely enough (Constant).
+                    <div class="profile-item" style="border-bottom: none;">
+                        <span class="item-label">Value Status</span>
+                        <span class="item-value">Fundamental Constant</span>
                     </div>
                 </div>
             </div>
 
-            <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #eee;">
-                <span class="sidebar-title" style="margin-bottom: 10px; display: block;">Editor's Note</span>
-                <p style="font-size: 14px; line-height: 1.4; color: #444; margin: 0;">
+            <div style="background: #f9f9f9; padding: 15px; border: 1px solid #eee;">
+                <span class="sidebar-title" style="margin-bottom: 8px; display: block;">Editor's Note</span>
+                <p style="font-size: 12px; line-height: 1.4; color: #444; margin: 0;">
                     This appreciation serves as a reminder that the people we love are more than their performance. Aaradhya is a testament to the fact that grace under pressure is the highest form of intelligence.
                 </p>
             </div>
         </aside>
     </div>
 
-    <footer class="article-footer">
-        <div style="font-family: var(--font-head); font-size: 24px; font-weight: 900; margin-bottom: 10px;">The New York Times</div>
-        <div style="font-family: var(--font-sans); font-size: 11px; color: var(--nyt-gray); text-transform: uppercase; letter-spacing: 1px;">
-            © 2026 The New York Times Company
-        </div>
+    <footer>
+        The New York Times
     </footer>
 
 </body>
